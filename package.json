@@ -1,0 +1,33 @@
+{
+  "name": "gameface-api",
+  "description": "an API server that handles in-game services",
+  "version": "0.0.1",
+  "repository": {
+    "url": "git://github.com/cvan/gameface-api.git",
+    "type": "git"
+  },
+  "engines": {
+    "node": ">=0.10.x",
+    "npm": ">=1.2.x"
+  },
+  "dependencies": {
+    "es6-promise": "^1.0.0",
+    "lodash": "^2.4.1",
+    "node-uuid": "^1.4.1",
+    "request": "^2.36.0",
+    "then-redis": "^0.3.12"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.2",
+    "gulp-concat": "^2.2.0",
+    "gulp-connect": "^2.0.5",
+    "gulp-helptext": "0.0.10",
+    "gulp-jshint": "^1.6.3"
+  },
+  "jshintConfig": {
+    "boss": true
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
