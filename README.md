@@ -2,26 +2,30 @@
 
 An API server that handles in-game services.
 
-
-# Prerequisites
-
-Install PostgreSQL via [homebrew](http://brew.sh/):
-
-    brew install postgresql
-    ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
-    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-    initdb /usr/local/var/postgres
-
-If you run into problems initalising the database, you may need to do this:
-
-    rm -rf /usr/local/var/postgres
+This is consumed by the front-end interface for
+[cvan/gameface-api](https://github.com/cvan/gameface-api).
 
 
 # Installation
 
-Initialise settings:
+## Mac OS X
 
-    cp settings_local.js.dist settings_local.js.dist
+```bash
+# Install redis via homebrew
+brew install redis
+# Set up redis as a launch agent
+brew info redis
+# Install node dependencies
+npm install
+# Copy local configuration into place
+cp settings_local.js.dist settings_local.js
+```
+
+If you'd like to run the server for development, consider install [`nodemon`](http://nodemon.io/) instead:
+
+```bash
+npm install nodemon -g
+```
 
 # Development
 
@@ -29,14 +33,18 @@ Run the development server:
 
     node app.js
 
-To have the server restart upon changes, use [nodemon](https://github.com/remy/nodemon):
+Or to have the server restart upon changes, using [nodemon](https://github.com/remy/nodemon):
 
     nodemon app.js
 
-Poke around the database:
+To play with redis:
 
-    psql arewefast
+    redis-cli
 
-View the database tables:
+To watch the commands getting sent to redis:
 
-    \dt
+    redis-cli monitor
+
+To clear redis:
+
+    redis-cli flushall
